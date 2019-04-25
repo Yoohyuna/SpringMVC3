@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+<!--@Autowired포함(@Resource,@Required~)을 사용하기 위한 빈즈클래스를 자동등록
+      시켜주는 옵션 -->
+<context:annotation-config />
+
+<!-- 
+ <bean name="/hello.do"  class="dr.mini.controller.TestController" /> 
+ <context:component-scan base-package="dr.minicontroller" />
+-->
+
+<bean  class="dr.mini.controller.TestController" />
+
+<!-- (4) viewResolver(위치)(prefix), 이동할페이지의 확장자를 지정(suffix)-->
+<bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+  <property name="viewClass"   value="org.springframework.web.servlet.view.JstlView" />
+  <property name="prefix"  value="/" />
+  <property name="suffix"  value=".jsp" />
+</bean>
+
+
+</beans>
+
+
+
